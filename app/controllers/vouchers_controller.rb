@@ -1,6 +1,6 @@
 class VouchersController < ApplicationController
   before_action :authenticate_business!
-  before_action :set_voucher, only: [:show, :edit, :update, :destroy]
+  before_action :set_voucher, only: [:show]
 
   # GET /vouchers
   # GET /vouchers.json
@@ -16,10 +16,6 @@ class VouchersController < ApplicationController
   # GET /vouchers/new
   def new
     @voucher = Voucher.new
-  end
-
-  # GET /vouchers/1/edit
-  def edit
   end
 
   # POST /vouchers
@@ -38,29 +34,6 @@ class VouchersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /vouchers/1
-  # PATCH/PUT /vouchers/1.json
-  def update
-    respond_to do |format|
-      if @voucher.update(voucher_params)
-        format.html { redirect_to @voucher, notice: 'Voucher was successfully updated.' }
-        format.json { render :show, status: :ok, location: @voucher }
-      else
-        format.html { render :edit }
-        format.json { render json: @voucher.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /vouchers/1
-  # DELETE /vouchers/1.json
-  def destroy
-    @voucher.destroy
-    respond_to do |format|
-      format.html { redirect_to vouchers_url, notice: 'Voucher was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
