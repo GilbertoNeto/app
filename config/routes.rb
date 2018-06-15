@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :vouchers,  only: [:index, :show, :new, :create]
 
+  resources :ratings, only: :update
+
   devise_for :businesses, path: 'businesses', controllers: {
     sessions: "businesses/sessions",
     registrations: "businesses/registrations"

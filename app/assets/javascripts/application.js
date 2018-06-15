@@ -17,6 +17,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.mask
+//= require jquery.raty
 
 
 $(document).on('turbolinks:load', function(){
@@ -50,3 +51,4 @@ $(document).on('turbolinks:load', function(){
 		});
 	});	
 });
+

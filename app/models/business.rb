@@ -1,6 +1,7 @@
 class Business < ApplicationRecord
   has_many :schedule
   has_many :service
+  has_many :ratings
   before_validation :format_params
   validates :name, presence: true, length: { minimum: 5 }, uniqueness: true
   validates :city, presence: true
@@ -17,7 +18,11 @@ class Business < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+ def average_rating
+      ratings.sum(:score) / ratings.size
+    end
   private
+    
   	def cnpj_valid
   		errors.add(:cnpj, 'inválido') if !CNPJ.valid?(cnpj, strict: true)
   	end

@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   has_many :schedule
   has_many :cars
+  has_many :ratings
   before_validation :format_params
   validates :name, presence: true,
                     length: { minimum: 5 }

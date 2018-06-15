@@ -1,6 +1,6 @@
 class CreateSchedules < ActiveRecord::Migration[5.2]
   def change
-    create_table  do |t|
+    create_table :schedules do |t|
       t.time :hour
       t.date :date
       t.integer :evaluation

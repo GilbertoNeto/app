@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'bootstrap'
 
+gem 'raty_ratings', '~> 1.2'
+
 gem 'devise'
 
 gem 'correios-cep'

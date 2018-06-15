@@ -19,11 +19,63 @@
 		           <%= link_to 'Agendar', new_business_schedule_path(business.id), :class => 'btn btn-sm btn-outline-secondary'  %>
 		        </div>
 		        <small class="text-muted">X carros na fila</small>
+
 		      </div>
+		      <p>Averate rating</p>
+				<div id="star"></div>
+				<div>
+				<p>Your rating</p>
+				<div id="user_star"></div>
+				<% if current_customer%>
+					<% @rating = Rating.where(business_id: business.id, customer_id: current_customer.id).first%>
+					<%unless @rating%>
+					  <%@rating = Rating.create(business_id: business.id, customer_id: current_customer.id, score: 0)%>
+					  </div>
+					<%end%>
+					<script>
+					  $('#star').raty({
+					    readOnly: true,
+					    score: <%= business.average_rating %>,
+					    
+					  });
+
+					  $('#user_star').raty({
+					    score: <%= @rating.score %>,
+					    
+					    click: function(score, evt) {
+					      $.ajax({
+					        url: '/ratings/' + <%= @rating.id %>,
+					        type: 'PATCH',
+					        data: { score: score }
+					      });
+					    }
+					  });
+
+					  $('#star').raty({
+					  readOnly: true,
+					  score: <%= business.average_rating %>,
+					  
+					  });
+
+					  $('#user_star').raty({
+						  score: <%= @rating.score %>,
+						  
+						  click: function(score, evt) {
+						    $.ajax({
+						      url: '/ratings/' + <%= @rating.id %>,
+						      type: 'PATCH',
+						      data: { score: score }
+						    }).done(function (data){});
+						  }
+					  });
+					</script>
+				<% end %>
 		    </div>
 		  </div>
 		</div>
+		
 	<% end %>
 </div>
 
 </div>
+
