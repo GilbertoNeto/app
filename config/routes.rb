@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :services, :vouchers, :cars
+  resources :services, :cars
+
+  resources :vouchers,  only: [:index, :show, :new, :create]
 
   devise_for :businesses, path: 'businesses', controllers: {
     sessions: "businesses/sessions",
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   get 'cep/index'
   get 'schedules/business_show'
   get 'schedules/customer_show'
+  get 'reports/top10'
 
 
   devise_scope :customer do
