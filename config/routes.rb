@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'schedules/business_show'
   get 'schedules/customer_show'
   get 'reports/top10'
+  get 'reports/lucro'
 
 
   devise_scope :customer do
