@@ -11,6 +11,7 @@ class ReportsController < ApplicationController
   		 order by total limit 10")
   end
 
+  
   def lucro
   	if params[:ano] and params[:mes]
 	 	ano = ActiveRecord::Base.connection.quote(params[:ano])
