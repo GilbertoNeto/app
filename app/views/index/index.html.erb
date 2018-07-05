@@ -8,7 +8,7 @@
 <br><br><br>
 
 <div class="row">
-    <% for business in @businesses %>
+  <% for business in @businesses %>
 		<div class="col-md-4">
 		  <div class="card mb-4 box-shadow">
 		    <h2 class="text-center"><%= business.name %></h2>
@@ -24,14 +24,15 @@
 		      <p>Averate rating</p>
 				<div id="star"></div>
 				<div>
-				<p>Your rating</p>
-				<div id="user_star"></div>
-				<% if current_customer%>
-					<% @rating = Rating.where(business_id: business.id, customer_id: current_customer.id).first%>
-					<%unless @rating%>
-					  <%@rating = Rating.create(business_id: business.id, customer_id: current_customer.id, score: 0)%>
-					  </div>
-					<%end%>
+					<p>Your rating</p>
+					<div id="user_star"></div>
+					<% if current_customer%>
+						<% @rating = Rating.where(business_id: business.id, customer_id: current_customer.id).first%>
+						<%unless @rating%>
+							<%@rating = Rating.create(business_id: business.id, customer_id: current_customer.id, score: 0)%>
+							<%end%>
+				</div>
+					
 					<script>
 					  $('#star').raty({
 					    readOnly: true,

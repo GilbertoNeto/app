@@ -12,10 +12,13 @@
       <% if customer_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Meus carros', cars_path, :class => 'nav-link'  %>
-          
+
         </li>
         <li class="nav-item">
         <%= link_to 'Meus agendamentos', schedules_customer_show_path, :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
         </li>
       <% elsif business_signed_in? %>
       <li class="nav-item">
@@ -29,7 +32,9 @@
         </li>
         <li class="nav-item">
           <%= link_to 'Top 10 Clientes', reports_top10_path, :class => 'nav-link'  %>
-
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
         </li>
         <li class="nav-item">
         <%= link_to 'Lucro mensal', reports_lucro_path, :class => 'nav-link'  %>
