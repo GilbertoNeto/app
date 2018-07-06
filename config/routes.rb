@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   resources :services, :cars
 
   resources :vouchers,  only: [:index, :show, :new, :create]
