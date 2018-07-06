@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
 
   def cliente
     @result = ActiveRecord::Base.connection.execute("select
-  		c.name from customers
+  		c.name as name, c.email as email from customers
   		c inner join schedules s on s.customer_id = c.id
   		where s.business_id = #{current_business.id}
   		group by c.id")
