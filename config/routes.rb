@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   resources :services, :cars
 
   resources :vouchers,  only: [:index, :show, :new, :create]
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     registrations: "businesses/registrations"
   }
 
-  devise_for :customers, path: 'customers', controllers: { 
+  devise_for :customers, path: 'customers', controllers: {
     sessions: "customers/sessions",
     registrations: "customers/registrations"
   }
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   get 'reports/top10'
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
+  get 'reports/cliente'
 
 
   devise_scope :customer do

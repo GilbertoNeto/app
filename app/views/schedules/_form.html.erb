@@ -37,6 +37,28 @@
 </select><%= link_to 'Novo carro', new_car_path %>
 </div>
 
+<div>Forma de pagamento
+  <select name="pagamento" id="pagamento">
+    <option value="dinheiro" id="dinheiro">Dinheiro</option>
+    <option value="cartao" id="cartao">Cartão</option>
+  </select>
+
+<br>
+
+<div class="js-dependent-fields" data-select-id="pagamento" data-option-value="cartao">
+<%= form.label :cards %>
+<select name="schedule[card_id]" required>
+<% current_customer.cards.each do |card| %>
+    <option value="<%= card.id  %>">
+      <%= card.numero %>
+    </option>
+<% end %>
+</select><%= link_to 'Novo cartão', new_card_path %>
+</div>
+</div>
+
+<br><br>
+
 <div class="field">
 <%= form.label :services %>
   <ul>
