@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     registrations: "businesses/registrations"
   }
 
-  devise_for :customers, path: 'customers', controllers: { 
+  devise_for :customers, path: 'customers', controllers: {
     sessions: "customers/sessions",
     registrations: "customers/registrations"
   }
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'schedules/customer_show'
   get 'reports/top10'
   get 'reports/lucro'
+  get 'reports/cliente'
 
 
   devise_scope :customer do

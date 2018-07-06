@@ -21,7 +21,7 @@
         <li class="nav-item">
         <%= link_to 'Meus Cartões', cards_path, :class => 'nav-link'  %>
         </li>
-        
+
       <% elsif business_signed_in? %>
       <li class="nav-item">
         <%= link_to 'Código promocional', vouchers_path, :class => 'nav-link'  %>
@@ -34,10 +34,12 @@
         </li>
         <li class="nav-item">
           <%= link_to 'Top 10 Clientes', reports_top10_path, :class => 'nav-link'  %>
-
         </li>
         <li class="nav-item">
         <%= link_to 'Lucro mensal', reports_lucro_path, :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Clientes", reports_cliente_path, :class => 'nav-link'  %>
         </li>
       <% else %>
         <li class="nav-item">

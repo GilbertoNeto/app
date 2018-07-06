@@ -1,0 +1,18 @@
+<h1>Meus Clientes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @result.each_with_index do |cliente, i| %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= cliente['name'] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
