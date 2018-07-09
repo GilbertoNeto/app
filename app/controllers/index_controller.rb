@@ -17,4 +17,10 @@ class IndexController < ApplicationController
   def check_signed_in
     redirect_to '/' if signed_in?
   end
+
+  def search
+    # @businesses = Business.search_for(params[:search])
+    redirect_to '/'
+    puts "#{search}"
+  end
 end

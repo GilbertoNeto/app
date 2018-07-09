@@ -11,6 +11,8 @@ class Business < ApplicationRecord
   validates :zipcode, presence: true
   validates :cnpj, uniqueness: true
   validate :cnpj_valid
+
+  scoped_search on: [:name]
   
 
   # Include default devise modules. Others available are:

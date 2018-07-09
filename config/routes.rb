@@ -24,11 +24,13 @@ Rails.application.routes.draw do
   get 'index/signup'
   get 'index/about'
   get 'cep/index'
+  # get 'index/search'
   get 'schedules/business_show'
   get 'schedules/customer_show'
   get 'reports/top10'
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
+  
 
 
   devise_scope :customer do
