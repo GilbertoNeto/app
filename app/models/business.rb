@@ -14,7 +14,7 @@ class Business < ApplicationRecord
 
   scoped_search on: [:name]
   
-
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -31,5 +31,6 @@ class Business < ApplicationRecord
 
   	def format_params
   		self.cnpj = CPF.new(cnpj).stripped
-  	end
+    end
+    
 end

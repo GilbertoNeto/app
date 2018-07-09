@@ -4,15 +4,11 @@
 	<br>
 
 <div class="row">
-	<label>Encontre um lava-jato</label>
-	<div class="col-md-7">
-		 <input class="form-control" type="text" name="search">
-	</div>
-	<div class="col-md-2">
-		<div class="btn-group">
-			<%= link_to 'Pesquisar', controller: 'index' , action: 'search' , :class => 'btn btn-sm btn-outline-secondary' %>
-		</div>
-	</div>	
+		<%= form_tag(search_path, :action => 'search', method: :get) do %>
+			Encontre um lava-jato: 
+			<%= text_field_tag :search, params[:search]  %>
+			<%= submit_tag 'Search', name: nil , :class => 'btn btn-sm btn-outline-secondary'%>
+		<% end %>
 </div>
 <br><br><br>
 

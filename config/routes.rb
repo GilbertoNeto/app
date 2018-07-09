@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   end
 
   get 'index/index'
+  get 'index/search', to: 'index#search', as: 'search'
   get 'index/login'
   get 'index/signup'
   get 'index/about'
   get 'cep/index'
-  # get 'index/search'
   get 'schedules/business_show'
   get 'schedules/customer_show'
   get 'reports/top10'

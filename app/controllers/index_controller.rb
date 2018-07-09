@@ -19,8 +19,7 @@ class IndexController < ApplicationController
   end
 
   def search
-    # @businesses = Business.search_for(params[:search])
-    redirect_to '/'
-    puts "#{search}"
+     @businesses = Business.search_for(params[:search])
+    #puts "#{search}"
   end
 end
