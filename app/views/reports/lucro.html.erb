@@ -42,3 +42,4 @@
 
 <h2>Total ganho: R$ <%= if @result and  @result[0]['total']then @result[0]['total'] else '0.0' end %></h2>
 
+<%= link_to 'Exportar para Excel', spreadsheets_spreadsheetLucro_path(format: :xlsx) %>

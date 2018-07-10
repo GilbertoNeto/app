@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
   get 'reports/cliente'
+  get 'spreadsheets/spreadsheet'
+  get 'spreadsheets/spreadsheetLavaJato'
+  get 'spreadsheets/spreadsheetLucro'
+  get 'spreadsheets/spreadsheetClientes'
+
 
 
   devise_scope :customer do

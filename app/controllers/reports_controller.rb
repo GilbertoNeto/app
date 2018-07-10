@@ -10,14 +10,14 @@ class ReportsController < ApplicationController
   		group by c.id
   		 order by total limit 10")
   end
-  
+
   def top10LavaJatos
-	@result = ActiveRecord::Base.connection.execute("select 
+	@result = ActiveRecord::Base.connection.execute("select
 		b.name, count(*) as total
-		 from businesses 
+		 from businesses
 		b inner join schedules s on s.business_id = b.id
 		where s.business_id = #{current_business.id}
-		group by b.id 
+		group by b.id
 		 order by total limit 10")
   end
 

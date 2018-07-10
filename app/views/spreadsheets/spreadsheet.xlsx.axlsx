@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Clientes TOP 10") do |sheet|
+  sheet.add_row ["Cliente", "Total de Agendamentos"]
+  @result.each do |cliente|
+    sheet.add_row [cliente['name'], cliente['total']]
+  end
+end
