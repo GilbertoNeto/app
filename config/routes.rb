@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contact_us
   resources :cards
   resources :services, :cars
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   get 'index/index'
+  post 'index/index', action: :search, controller: 'index'
   get 'index/login'
   get 'index/signup'
   get 'index/about'
@@ -30,12 +32,12 @@ Rails.application.routes.draw do
   get 'reports/top10'
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
+
   get 'reports/cliente'
   get 'spreadsheets/spreadsheet'
   get 'spreadsheets/spreadsheetLavaJato'
   get 'spreadsheets/spreadsheetLucro'
   get 'spreadsheets/spreadsheetClientes'
-
 
 
   devise_scope :customer do

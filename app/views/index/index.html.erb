@@ -3,7 +3,20 @@
 	<p><%= notice %></p>
 	<br>
 
-<input class="form-control form-control-lg" type="text" name="search">
+
+		<%= form_tag(index_index_path, :method => :get) do %>
+			 <div class="row">
+					<div class="col-2">
+						Encontre um lava-jato
+					 </div>
+					<div class="col-8"> 
+						<%= text_field_tag 'search', nil, placeholder: 'Enter search ...' %>
+					 </div>
+					<div class="col-2">
+						<%= submit_tag 'Search', name: nil , :class => 'btn btn-sm btn-outline-secondary' %>
+					</div>
+			</div>  
+		<% end %>
 
 <br><br><br>
 
@@ -78,5 +91,5 @@
 	<% end %>
 </div>
 
-</div>
+</div>	
 
