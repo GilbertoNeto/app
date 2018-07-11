@@ -18,6 +18,9 @@
         <%= link_to 'Meus agendamentos', schedules_customer_show_path, :class => 'nav-link'  %>
         </li>
         <li class="nav-item">
+        <%= link_to 'Meus Cartões', cards_path, :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
         </li>
       <% elsif business_signed_in? %>
@@ -39,6 +42,9 @@
         <li class="nav-item">
         <%= link_to 'Lucro mensal', reports_lucro_path, :class => 'nav-link'  %>
         </li>
+        <li class="nav-item">
+        <%= link_to "Clientes", reports_cliente_path, :class => 'nav-link'  %>
+        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Cadastre-se", index_signup_path, :class => 'nav-link'  %>
@@ -50,7 +56,7 @@
           <%= link_to "Fale conosco", new_contact_u_path, :class => 'nav-link' %>   
         </li> 
       <% end %>
-      
+
     </ul>
 
     <p class="navbar-text pull-right">

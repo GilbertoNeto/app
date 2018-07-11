@@ -2,6 +2,7 @@ class Customer < ApplicationRecord
   has_many :schedule
   has_many :cars
   has_many :ratings
+  has_many :cards
   before_validation :format_params
   validates :name, presence: true,
                     length: { minimum: 5 }
@@ -12,7 +13,7 @@ class Customer < ApplicationRecord
   validates :zipcode, presence: true
   validates :cpf, uniqueness: true
   validate :cpf_valid
-  
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

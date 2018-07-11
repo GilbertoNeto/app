@@ -1,11 +1,11 @@
-<h1>Top 10 Clientes</h1>
+<h1>Meus Clientes</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nome</th>
-      <th scope="col">Total de agendamento</th>
+      <th scope="col">Email</th>
     </tr>
   </thead>
   <tbody>
@@ -13,10 +13,11 @@
     <tr>
       <th scope="row"><%= i+1 %></th>
       <td><%= cliente['name'] %></td>
-      <td><%= cliente['total'] %></td>
+      <td><%= cliente['email'] %></td>
     </tr>
     <% end %>
   </tbody>
+
 </table>
 
-<%= link_to 'Exportar para Excel', spreadsheets_spreadsheet_path(format: :xlsx) %>
+<%= link_to 'Exportar para Excel', spreadsheets_spreadsheetClientes_path(format: :xlsx) %>

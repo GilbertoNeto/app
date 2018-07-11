@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2018_07_11_190803) do
-
   create_table "businesses", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,6 +33,18 @@ ActiveRecord::Schema.define(version: 2018_07_11_190803) do
     t.string "name"
     t.index ["email"], name: "index_businesses_on_email", unique: true
     t.index ["reset_password_token"], name: "index_businesses_on_reset_password_token", unique: true
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.integer "numero"
+    t.date "validade"
+    t.string "bandeira"
+    t.integer "cvv"
+    t.string "titular"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_cards_on_customer_id"
   end
 
   create_table "cars", force: :cascade do |t|
