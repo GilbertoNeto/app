@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contact_us
   resources :services, :cars
 
   resources :vouchers,  only: [:index, :show, :new, :create]
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   get 'index/index'
-  get 'index/search', to: 'index#search', as: 'search'
+  post 'index/index', action: :search, controller: 'index'
   get 'index/login'
   get 'index/signup'
   get 'index/about'

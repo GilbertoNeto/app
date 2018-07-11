@@ -12,7 +12,7 @@ class Business < ApplicationRecord
   validates :cnpj, uniqueness: true
   validate :cnpj_valid
 
-  scoped_search on: [:name]
+
   
   
   # Include default devise modules. Others available are:
