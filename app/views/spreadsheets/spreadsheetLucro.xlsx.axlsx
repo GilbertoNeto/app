@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Lucro Mensal") do |sheet|
+  sheet.add_row ["Serviço", "Valor", "Data Agendamento"]
+  @result.each do |lucro|
+    sheet.add_row [lucro['name'], lucro['price'], lucro['date']]
+  end
+end
