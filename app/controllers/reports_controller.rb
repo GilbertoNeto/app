@@ -43,4 +43,14 @@ class ReportsController < ApplicationController
   		where s.business_id = #{current_business.id}
   		group by c.id")
   end
+
+  def send_notification
+    email = params[:email_cliente]
+    NotificationMailer.notification(email).deliver_now
+    flash.now[:alert] = 'Email enviado com sucesso!'
+
+    redirect_back(fallback_location: reports_cliente_path)
+
+  end
+
 end

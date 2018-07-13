@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'spreadsheets/spreadsheetLavaJato'
   get 'spreadsheets/spreadsheetLucro'
   get 'spreadsheets/spreadsheetClientes'
+  get 'reports/send_notification'
 
 
 
