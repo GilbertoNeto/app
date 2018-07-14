@@ -29,15 +29,18 @@ Rails.application.routes.draw do
   get 'cep/index'
   get 'schedules/business_show'
   get 'schedules/customer_show'
+  get 'schedules/destroy/:id', to: 'schedules#destroy'
   get 'reports/top10'
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
-
   get 'reports/cliente'
   get 'spreadsheets/spreadsheet'
   get 'spreadsheets/spreadsheetLavaJato'
   get 'spreadsheets/spreadsheetLucro'
   get 'spreadsheets/spreadsheetClientes'
+  get 'reports/cancelados'
+
+
 
 
   devise_scope :customer do
