@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contact_us
   resources :cards
   resources :services, :cars
 
@@ -21,12 +22,14 @@ Rails.application.routes.draw do
   end
 
   get 'index/index'
+  post 'index/index', action: :search, controller: 'index'
   get 'index/login'
   get 'index/signup'
   get 'index/about'
   get 'cep/index'
   get 'schedules/business_show'
   get 'schedules/customer_show'
+  get 'schedules/destroy/:id', to: 'schedules#destroy'
   get 'reports/top10'
   get 'reports/top10LavaJatos'
   get 'reports/lucro'
@@ -36,6 +39,8 @@ Rails.application.routes.draw do
   get 'spreadsheets/spreadsheetLucro'
   get 'spreadsheets/spreadsheetClientes'
   get 'reports/send_notification'
+  get 'reports/cancelados'
+
 
 
 

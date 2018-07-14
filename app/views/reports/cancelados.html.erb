@@ -1,0 +1,31 @@
+<h1>Agendamentos Cancelados</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome Cliente</th>
+      <th scope="col">Data do agendamento</th>
+      <th scope="col">Serviços Selecionados</th>
+      <th scope="col">Data do cancelamento</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @schedules.each_with_index do |schedule, i| %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= schedule.customer.name %></td>
+      <td><%= schedule.date.strftime("%d/%m/%Y") %></td>
+      <td>
+        <% Service.where(id: schedule.customer.schedule_ids).each do |service| %>
+          <%= service.name %>;
+        <%end %>
+      </td>
+      <td><%= schedule.cancelado.strftime("%d/%m/%Y") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<%= link_to 'Exportar para Excel', spreadsheets_spreadsheetClientes_path(format: :xlsx) %>

@@ -1,6 +1,7 @@
 # XGH
 class ReportsController < ApplicationController
-  before_action :authenticate_business!
+
+
   def top10
   	@result = ActiveRecord::Base.connection.execute("select
   		c.name, count(*) as total
@@ -8,7 +9,7 @@ class ReportsController < ApplicationController
   		c inner join schedules s on s.customer_id = c.id
   		where s.business_id = #{current_business.id}
   		group by c.id
-  		 order by total limit 10")
+  		 order by total desc limit 10")
   end
 
   def top10LavaJatos
@@ -16,9 +17,8 @@ class ReportsController < ApplicationController
 		b.name, count(*) as total
 		 from businesses
 		b inner join schedules s on s.business_id = b.id
-		where s.business_id = #{current_business.id}
 		group by b.id
-		 order by total limit 10")
+		 order by total desc limit 10")
   end
 
 
@@ -51,6 +51,11 @@ class ReportsController < ApplicationController
 
     redirect_back(fallback_location: reports_cliente_path)
 
+  end
+
+
+  def cancelados
+    @schedules = Schedule.where(deletado: 1)
   end
 
 end

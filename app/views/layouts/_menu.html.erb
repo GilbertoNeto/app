@@ -9,6 +9,9 @@
       <li class="nav-item active">
         <%= link_to "Sobre o CleanCar", index_about_path, :class => 'nav-link'  %>
       </li>
+      <li class="nav-item">
+          <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
+        </li>
       <% if customer_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Meus carros', cars_path, :class => 'nav-link'  %>
@@ -20,9 +23,7 @@
         <li class="nav-item">
         <%= link_to 'Meus Cartões', cards_path, :class => 'nav-link'  %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
-        </li>
+ 
       <% elsif business_signed_in? %>
       <li class="nav-item">
         <%= link_to 'Código promocional', vouchers_path, :class => 'nav-link'  %>
@@ -36,11 +37,12 @@
         <li class="nav-item">
           <%= link_to 'Top 10 Clientes', reports_top10_path, :class => 'nav-link'  %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Top 10 Lava Jatos', reports_top10LavaJatos_path, :class => 'nav-link'  %>
-        </li>
+        
         <li class="nav-item">
         <%= link_to 'Lucro mensal', reports_lucro_path, :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Agendamentos cancelados', reports_cancelados_path, :class => 'nav-link'  %>
         </li>
         <li class="nav-item">
         <%= link_to "Clientes", reports_cliente_path, :class => 'nav-link'  %>
@@ -52,6 +54,9 @@
         <li class="nav-item">
           <%= link_to "Entrar", index_login_path, :class => 'nav-link'  %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Fale conosco", new_contact_u_path, :class => 'nav-link' %>   
+        </li> 
       <% end %>
 
     </ul>

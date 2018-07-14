@@ -3,11 +3,11 @@ class SchedulesController < ApplicationController
   before_action :authenticate_customer!, only: [:customer_show, :new, :create]
 
   def customer_show
-    @schedules = Schedule.where(customer_id: current_customer.id)
+    @schedules = Schedule.where(customer_id: current_customer.id, deletado: 0)
   end
 
   def business_show
-    @schedules = Schedule.where(business_id: current_business.id)
+    @schedules = Schedule.where(business_id: current_business.id, deletado: 0)
   end
 
   def new
@@ -26,6 +26,7 @@ class SchedulesController < ApplicationController
           format.html { redirect_to new_business_schedule_path(@schedule.business_id), notice: 'Schedule was not successfully created.' }
         end
       else
+        @schedule.deletado = 0
         @schedule.save
         for service_id in params[:service_ids]
           @schedule_service = ScheduleService.new
@@ -38,6 +39,16 @@ class SchedulesController < ApplicationController
         end
       end
     end
+  end
+
+
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.deletado = 1
+    @schedule.cancelado = Time.now.getutc
+    @schedule.save
+
+    redirect_to schedules_customer_show_path
   end
 
   private
